@@ -1,0 +1,33 @@
+public class BubbleSortExample {
+
+    public static void bubbleSort(int[] nums) {
+        int n = nums.length;
+        // Traverse all array elements
+        for (int i = 0; i < n - 1; i++) {
+            boolean swapped = false;
+            // Last i elements are already in place
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (nums[j] > nums[j + 1]) {
+                    // swap nums[j] and nums[j+1]
+                    int temp = nums[j];
+                    nums[j] = nums[j + 1];
+                    nums[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+            // If no two elements were swapped by inner loop, the array is sorted
+            if (!swapped) {
+                break;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {64, 34, 25, 12, 22, 11, 90};
+        System.out.println("Before: " + java.util.Arrays.toString(nums));
+
+        bubbleSort(nums);
+
+        System.out.println("After:  " + java.util.Arrays.toString(nums));
+        // Output: [11, 12, 22, 25, 34, 64, 90]
+    }
